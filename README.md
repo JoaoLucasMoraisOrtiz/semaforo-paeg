@@ -1,3 +1,14 @@
+> ## 📌 Autoria e divisão do trabalho
+>
+> Este repositório tem duas partes, separadas também no histórico do git:
+>
+> | Parte | Autor | Commits |
+> |---|---|---|
+> | **Base do projeto** (pré-existente) | Igor Gonçalves ([@Bolodarie](https://github.com/Bolodarie/traffic-lights-pro)) | os 9 primeiros commits, de 04/12/2025 |
+> | **Melhorias e continuidade** (trabalho avaliado) | João Lucas Morais Ortiz | commits de 2026 em diante |
+>
+> Detalhes na seção [Contribuições de João Lucas Morais Ortiz](#-contribuições-de-joão-lucas-morais-ortiz) no fim deste arquivo.
+
 # 🚦 Traffic Light Detection com RT-DETR (Transformer)
 
 Este projeto implementa um sistema de detecção e classificação de semáforos em tempo real utilizando **Deep Learning** e **Computer Vision**. 
@@ -70,3 +81,33 @@ O modelo é treinado para detectar 3 classes principais:
 1: Red (Vermelho)
 
 2: Yellow (Amarelo)
+
+---
+
+## 🧩 Contribuições de João Lucas Morais Ortiz
+
+### O que já existia (base de Igor Gonçalves)
+- `convert_lisa_to_detection.py`: ETL do dataset LISA para o formato YOLO/Detection.
+- `train_detection.py`: fine-tuning do RT-DETR-L com Ultralytics.
+- `run_video_detection.py` (versão original, ~36 linhas): inferência frame a frame com `model.predict` e `results[0].plot()`, com caminho de vídeo fixo no código.
+- `requirements.txt` e a primeira parte deste README.
+
+### O que foi adicionado neste trabalho
+
+| Arquivo | Situação | O que faz |
+|---|---|---|
+| `lane_detection.py` | **novo** | Detecção da faixa do próprio veículo (ego-lane) com Canny + Transformada de Hough. |
+| `run_video_detection.py` | **reescrito** | Tracking com ByteTrack (ID por semáforo), histórico de estado dos últimos 5 frames contra *flickering*, cor do semáforo via HSV, escolha do semáforo **TARGET** alinhado à faixa, frame skipping com cache das detecções, `--imgsz`, `--save` (MP4 com fallback AVI, salva mesmo com CTRL+C), `--display-scale`, `--video`, e escolha automática do modelo mais rápido disponível (OpenVINO INT8 → OpenVINO → ONNX → `.pt`). |
+| `export_model.py` | **novo** | Exporta o modelo para ONNX ou OpenVINO, com quantização INT8 e resolução de entrada configurável. |
+| `cpp_runner/` (`main.cpp`, `CMakeLists.txt`) | **novo** | Esqueleto de inferência em C++ com OpenCV DNN para hardware embarcado. |
+| `DOCUMENTACAO_MELHORIAS.md` | **novo** | Relatório das três frentes de melhoria: tracking temporal, associação ego-lane + cor, e otimização para CPU. |
+| `.gitignore` | **novo** | Exclui pesos, vídeos e datasets do versionamento. |
+
+Para ver exatamente o que mudou em relação à base: `git diff a271f84 HEAD`.
+
+### Como rodar a versão melhorada
+```bash
+pip install -r requirements.txt
+python export_model.py --format openvino --int8 --imgsz 320   # opcional, acelera na CPU
+python run_video_detection.py --video seu_video.mp4 --imgsz 320 --skip-frames 2 --save
+```

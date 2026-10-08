@@ -1,0 +1,10 @@
+__pycache__/
+*.pt
+*.onnx
+*_openvino_model/
+runs/
+data/
+datasets/
+*.mp4
+*.avi
+cpp_runner/build/
