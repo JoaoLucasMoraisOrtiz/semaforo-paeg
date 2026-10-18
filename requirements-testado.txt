@@ -1,0 +1,14 @@
+# Versões exatas usadas nas medições de relatorio.md (13/10/2026, Python 3.13.12, CPU).
+# requirements.txt traz as versões mínimas; este arquivo reproduz o ambiente testado.
+ultralytics==8.4.75
+torch==2.11.0
+torchvision==0.26.0
+opencv-python==4.13.0.92
+numpy==2.4.3
+openvino==2026.2.1
+nncf==3.2.0
+onnx==1.22.0
+onnxruntime==1.27.0
+lap==0.5.13
+pandas==3.0.2
+scikit-learn==1.8.0

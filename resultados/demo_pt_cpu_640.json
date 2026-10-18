@@ -1,0 +1,180 @@
+{
+  "timestamp": "2026-10-13T17:41:33",
+  "command": "python run_video_detection.py --video /home/joao/Downloads/videCarr.mp4 --model rtdetr-l.pt --no-display --skip-frames 1 --imgsz 640 --lane-roi-bottom 0.72 --save --output demos/demo_pt_cpu_640.mp4 --log resultados/demo_pt_cpu_640.json",
+  "args": {
+    "video": "/home/joao/Downloads/videCarr.mp4",
+    "model": "rtdetr-l.pt",
+    "device": "cpu",
+    "skip_frames": 1,
+    "imgsz": 640,
+    "conf": 0.3,
+    "lane_roi_bottom": 0.72,
+    "target_max_dist": 0.15,
+    "target_margin": 0.05,
+    "max_frames": 0,
+    "save": true,
+    "output": "demos/demo_pt_cpu_640.mp4",
+    "log": "resultados/demo_pt_cpu_640.json",
+    "no_display": true,
+    "display_scale": 0.5
+  },
+  "environment": {
+    "versions": {
+      "python": "3.13.12",
+      "opencv": "4.13.0",
+      "ultralytics": "8.4.75",
+      "torch": "2.11.0+rocm7.2",
+      "torchvision": "0.26.0+rocm7.2",
+      "numpy": "2.4.3",
+      "openvino": "2026.2.1",
+      "onnxruntime": "1.27.0",
+      "lap": "0.5.13"
+    },
+    "platform": "Linux-7.0.0-38-generic-x86_64-desconhecido-with-glibc2.43",
+    "cpu": "AMD Ryzen 7 5700G with Radeon Graphics",
+    "cpu_count": 16
+  },
+  "model": {
+    "path": "rtdetr-l.pt",
+    "sha256": "6de60b10d4bc566f00cda0f5b4d64afe4b66d48dc9695d2171effb7859d8e73f",
+    "classes": {
+      "0": "person",
+      "1": "bicycle",
+      "2": "car",
+      "3": "motorcycle",
+      "4": "airplane",
+      "5": "bus",
+      "6": "train",
+      "7": "truck",
+      "8": "boat",
+      "9": "traffic light",
+      "10": "fire hydrant",
+      "11": "stop sign",
+      "12": "parking meter",
+      "13": "bench",
+      "14": "bird",
+      "15": "cat",
+      "16": "dog",
+      "17": "horse",
+      "18": "sheep",
+      "19": "cow",
+      "20": "elephant",
+      "21": "bear",
+      "22": "zebra",
+      "23": "giraffe",
+      "24": "backpack",
+      "25": "umbrella",
+      "26": "handbag",
+      "27": "tie",
+      "28": "suitcase",
+      "29": "frisbee",
+      "30": "skis",
+      "31": "snowboard",
+      "32": "sports ball",
+      "33": "kite",
+      "34": "baseball bat",
+      "35": "baseball glove",
+      "36": "skateboard",
+      "37": "surfboard",
+      "38": "tennis racket",
+      "39": "bottle",
+      "40": "wine glass",
+      "41": "cup",
+      "42": "fork",
+      "43": "knife",
+      "44": "spoon",
+      "45": "bowl",
+      "46": "banana",
+      "47": "apple",
+      "48": "sandwich",
+      "49": "orange",
+      "50": "broccoli",
+      "51": "carrot",
+      "52": "hot dog",
+      "53": "pizza",
+      "54": "donut",
+      "55": "cake",
+      "56": "chair",
+      "57": "couch",
+      "58": "potted plant",
+      "59": "bed",
+      "60": "dining table",
+      "61": "toilet",
+      "62": "tv",
+      "63": "laptop",
+      "64": "mouse",
+      "65": "remote",
+      "66": "keyboard",
+      "67": "cell phone",
+      "68": "microwave",
+      "69": "oven",
+      "70": "toaster",
+      "71": "sink",
+      "72": "refrigerator",
+      "73": "book",
+      "74": "clock",
+      "75": "vase",
+      "76": "scissors",
+      "77": "teddy bear",
+      "78": "hair drier",
+      "79": "toothbrush"
+    },
+    "traffic_light_classes": [
+      "traffic light"
+    ]
+  },
+  "video": {
+    "path": "/home/joao/Downloads/videCarr.mp4",
+    "width": 720,
+    "height": 1280,
+    "fps": 30.0
+  },
+  "output_video": "demos/demo_pt_cpu_640.mp4",
+  "frames_processed": 714,
+  "inferences": 357,
+  "timing": {
+    "per_frame": {
+      "n": 714,
+      "mean_ms": 180.6,
+      "p50_ms": 160.8,
+      "p95_ms": 385.5,
+      "max_ms": 898.6
+    },
+    "inference_and_tracking": {
+      "n": 357,
+      "mean_ms": 355.0,
+      "p50_ms": 350.2,
+      "p95_ms": 395.0,
+      "max_ms": 887.7
+    }
+  },
+  "realtime": {
+    "frame_interval_ms": 33.3,
+    "processing_fps": 5.54,
+    "mean_within_interval": false,
+    "p95_within_interval": false
+  },
+  "traffic_light_detections": {
+    "total": 360,
+    "inferences_with_any": 118
+  },
+  "per_inference_counts": {
+    "lane_status": {
+      "ok": 53,
+      "partial": 137,
+      "none": 167
+    },
+    "target_reason": {
+      "ambiguo": 1,
+      "faixa nao detectada": 304,
+      "nenhum semaforo": 44,
+      "ok": 7,
+      "nenhum semaforo alinhado a faixa": 1
+    },
+    "target_state": {
+      "Yellow": 1,
+      "Green": 3,
+      "Red": 3
+    }
+  }
+}

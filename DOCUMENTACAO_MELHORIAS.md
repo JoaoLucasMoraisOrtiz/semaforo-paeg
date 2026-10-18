@@ -1,3 +1,5 @@
+> **Versão original (08/10/2026).** A versão revisada após a avaliação, com as correções pedidas e os resultados medidos, está em [`relatorio.md`](relatorio.md). Duas afirmações abaixo estão incorretas: a quantização INT8 com as opções padrão zerou as detecções do modelo (ver `relatorio.md`), e passar de FP32 para INT8 reduz os pesos a cerca de ¼, não à metade.
+
 # Relatório de Melhorias e Continuidade do Projeto
 
 Este documento detalha as três principais frentes de melhoria arquitetural implementadas no projeto **Traffic Lights Pro** para detecção de semáforos em veículos autônomos. O foco principal destas adições foi transformar uma simples inferência frame a frame em um sistema robusto, rápido e com contexto espacial-temporal.
