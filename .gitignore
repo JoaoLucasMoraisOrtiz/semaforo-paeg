@@ -1,10 +1,11 @@
 __pycache__/
 *.pt
 *.onnx
-*_openvino_model/
+*_openvino_model*/
 runs/
 data/
 datasets/
 *.mp4
+!demos/demo_curta_openvino_fp32_640.mp4
 *.avi
 cpp_runner/build/
