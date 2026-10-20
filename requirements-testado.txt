@@ -1,4 +1,4 @@
-# Versões exatas usadas nas medições de relatorio.md (13/10/2026, Python 3.13.12, CPU).
+# Versões exatas usadas nas medições de benchmark (13/10/2026, Python 3.13.12, CPU).
 # requirements.txt traz as versões mínimas; este arquivo reproduz o ambiente testado.
 ultralytics==8.4.75
 torch==2.11.0

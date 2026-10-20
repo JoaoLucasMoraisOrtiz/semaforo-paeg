@@ -16,7 +16,7 @@ import time
 # Ordem de preferência quando --model não é informado: primeiro o modelo treinado no
 # LISA (classes Green/Red/Yellow), depois o pré-treinado COCO (classe "traffic light").
 # Dentro de cada um, a versão exportada mais rápida para CPU. Os modelos INT8 ficam de
-# fora: a quantização padrão do RT-DETR zerou as detecções nos testes (ver relatorio.md),
+# fora: a quantização padrão do RT-DETR zerou as detecções nos testes,
 # então só são usados se passados explicitamente em --model.
 MODEL_CANDIDATES = [
     'runs/detect/train/weights/best_openvino_model',

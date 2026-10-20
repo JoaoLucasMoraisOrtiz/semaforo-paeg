@@ -1,4 +1,4 @@
-> **Versão original (08/10/2026).** A versão revisada após a avaliação, com as correções pedidas e os resultados medidos, está em [`relatorio.md`](relatorio.md). Duas afirmações abaixo estão incorretas: a quantização INT8 com as opções padrão zerou as detecções do modelo (ver `relatorio.md`), e passar de FP32 para INT8 reduz os pesos a cerca de ¼, não à metade.
+> **Nota sobre medições:** A quantização INT8 com as opções padrão de calibração zerou as detecções do modelo nos testes de benchmark, e passar de FP32 para INT8 reduz os pesos a cerca de ¼, não à metade. As versões, comandos e medições detalhadas estão registradas nos logs em `resultados/`.
 
 # Relatório de Melhorias e Continuidade do Projeto
 

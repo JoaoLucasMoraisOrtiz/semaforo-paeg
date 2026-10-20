@@ -99,10 +99,9 @@ O modelo é treinado para detectar 3 classes principais:
 | `lane_detection.py` | **novo** | Detecção da faixa do próprio veículo (ego-lane) com Canny + Transformada de Hough. |
 | `run_video_detection.py` | **reescrito** | Tracking com ByteTrack (ID por semáforo), histórico de estado dos últimos 5 frames contra *flickering*, cor do semáforo via HSV, escolha do semáforo **TARGET** alinhado à faixa, frame skipping com cache das detecções, `--imgsz`, `--save` (MP4 com fallback AVI, salva mesmo com CTRL+C), `--display-scale`, `--video`, e escolha automática do modelo (treinado no LISA antes do COCO; OpenVINO → ONNX → `.pt`). Revisão de 13/10/2026: TARGET restrito a semáforos e com casos indeterminados/ambíguos, histórico de cor sem votos repetidos dos quadros pulados, `--model`, `--device`, medição de tempo por quadro e registro JSON de cada execução (versões, pesos, comando, métricas). |
 | `lane_detection.py` (revisão) | **alterado** | Retorna `None` e um status (`ok`/`partial`/`none`/`invalid`) quando não encontra a faixa, em vez do centro da imagem; `--lane-roi-bottom` exclui o capô. |
-| `export_model.py` | **novo** | Exporta o modelo para ONNX ou OpenVINO, com quantização INT8 (`--data` para calibração) e resolução de entrada configurável. Atenção: o INT8 com calibração padrão zerou as detecções (ver `relatorio.md`). |
+| `export_model.py` | **novo** | Exporta o modelo para ONNX ou OpenVINO, com quantização INT8 (`--data` para calibração) e resolução de entrada configurável. Atenção: o INT8 com calibração padrão zerou as detecções. |
 | `cpp_runner/` (`main.cpp`, `CMakeLists.txt`) | **novo** | Esqueleto inicial em C++ com OpenCV DNN: carrega o modelo e executa o *forward*, sem pós-processamento, tracking, faixa ou cor. |
-| `DOCUMENTACAO_MELHORIAS.md` | **novo** | Primeira versão do relatório (08/10/2026). |
-| `relatorio.md` | **novo** | Relatório revisado: correções da avaliação, o que foi implementado × validado, medições em CPU, limitações e reprodutibilidade. |
+| `DOCUMENTACAO_MELHORIAS.md` | **novo** | Documentação das melhorias de arquitetura. |
 | `resultados/` | **novo** | Registros JSON das execuções de demonstração (versões, hashes dos pesos, comandos, tempos, contagens). |
 | `requirements-testado.txt` | **novo** | Versões exatas das bibliotecas usadas nas medições. |
 | `.gitignore` | **novo** | Exclui pesos, vídeos e datasets do versionamento. |
